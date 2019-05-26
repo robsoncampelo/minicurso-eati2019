@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:decorate xmlns="http://www.w3.org/1999/xhtml"
+             xmlns:h="http://xmlns.jcp.org/jsf/html"
+             xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+             xmlns:p="http://primefaces.org/ui"
+             template="template.xhtml">
+
+    <p:panel header="Cadastro de Clientes">
+        <h:form>
+            <p:growl id="msgs" showDetail="true" />
+            
+            <h:panelGrid columns="2" cellpadding="5">
+                <h:outputLabel for="nome" value="Nome"></h:outputLabel>
+                <p:inputText id="nome" required="true"  requiredMessage="Campo Nome é obrigatório" 
+                             value="#{gerenciarClienteBean.cliente.nome}"></p:inputText>
+               
+                <h:outputLabel for="sobrenome" value="Sobrenome*"></h:outputLabel>
+                <p:inputText id="sobrenome" required="true" requiredMessage="Campo Sobrenome é obrigatório"
+                             value="#{gerenciarClienteBean.cliente.sobrenome}"></p:inputText>
+                              
+                <h:outputLabel for="fone" value="Telefone*"></h:outputLabel>
+                <p:inputMask id="fone" required="true" requiredMessage="Campo Telefone é obrigatório" value="#{gerenciarClienteBean.cliente.fone}" 
+                             mask="(99)99999-9999" ></p:inputMask>
+               
+                <h:outputLabel for="data-nasc" value="Data de Nascimento*"></h:outputLabel>
+                <p:calendar id="data-nasc" required="true" requiredMessage="Campo Data é obrigatório" 
+                            value="#{gerenciarClienteBean.cliente.dataNascimento}" 
+                             showOn="button" navigator="true" yearRange="c-100:c+100"></p:calendar>
+                
+                <h:outputLabel for="senha" value="Senha*"></h:outputLabel>
+                <p:password id="senha" required="true" requiredMessage="Campo Senha é obrigatório"
+                            value="#{gerenciarClienteBean.cliente.senha}" 
+                             feedback="true" promptLabel="Força da senha"
+                            weakLabel="Fraca" goodLabel="Boa" strongLabel="Forte"></p:password>
+               
+            </h:panelGrid>
+            <p:commandButton value="Enviar" update="msgs" 
+                             action="#{gerenciarClienteBean.enviarMensagem()}"
+                             icon="ui-icon-check" />
+            <p:commandButton value="Limpar" type="reset" icon="ui-icon-trash" />
+            
+        </h:form>
+    </p:panel>
+</ui:decorate>
+

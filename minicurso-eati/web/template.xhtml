@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>Sistema Carros</title>
+            </f:facet>
+        </h:head>
+
+        <h:body>
+
+            <p:layout fullPage="true">
+
+                <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
+                    <h1>Sistema de Carros</h1>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
+                    IFMG - Campus Sabará - Todos os direitos reservados.
+                </p:layoutUnit>
+
+                <p:layoutUnit position="west" size="215" collapsible="true">
+                    <h:form>
+                        <p:menu>
+                            <p:menuitem value="Home" url="index.xhtml" icon="ui-icon-home" />
+                            <p:menuitem value="Gerenciar Clientes" url="gerenciar-cliente.xhtml"></p:menuitem>
+                            <p:menuitem value="Gerenciar Carros" url="gerenciar-carro.xhtml"></p:menuitem>
+                            <p:menuitem value="Catálogo de Carros" url="catalogo-carros.xhtml"></p:menuitem>
+                            <p:menuitem value="Lançamentos" url="lancamentos.xhtml"></p:menuitem>
+                            <p:menuitem value="Mais Vendidos" url="mais-vendidos.xhtml"></p:menuitem>
+                            <p:menuitem value="Show Case Primefaces" target="blank" url="https://www.primefaces.org/showcase/"></p:menuitem>
+                        </p:menu>
+                    </h:form>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="center">
+                    <ui:insert></ui:insert>
+                </p:layoutUnit>
+
+            </p:layout>
+
+        </h:body>
+
+    </f:view>
+
+</html>
+

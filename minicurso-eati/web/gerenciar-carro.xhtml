@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:decorate xmlns="http://www.w3.org/1999/xhtml"
+             xmlns:h="http://xmlns.jcp.org/jsf/html"
+             xmlns:p="http://primefaces.org/ui"
+             xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+             template="template.xhtml">
+
+    <h:form>  
+        <p:toolbar>
+            <p:toolbarGroup>
+                <p:commandButton value="Adicionar" action="#{gerenciarCarroBean.adicionar()}" update="@form"></p:commandButton>
+                <p:commandButton value="Limpar" action="#{gerenciarCarroBean.limpar()}" update="@form"></p:commandButton>
+            </p:toolbarGroup>
+        </p:toolbar>
+        <p:fieldset legend="Carros">
+            <p:panelGrid columns="2">
+                <h:outputLabel for="modelo" value="Modelo"></h:outputLabel>
+                <p:inputText id="modelo" value="#{gerenciarCarroBean.carro.modelo}"></p:inputText>
+
+                <h:outputLabel for="fab" value="Fabricante"></h:outputLabel>
+                <p:inputText id="fab" value="#{gerenciarCarroBean.carro.fabricante}"></p:inputText>
+
+                <h:outputLabel for="cor" value="Cor"></h:outputLabel>
+                <p:inputText id="cor" value="#{gerenciarCarroBean.carro.cor}"></p:inputText>
+
+                <h:outputLabel for="ano" value="Ano"></h:outputLabel>
+                <p:inputMask id="ano" mask="9999" value="#{gerenciarCarroBean.carro.ano}"></p:inputMask>
+            </p:panelGrid>     
+            <p:dataTable value="#{gerenciarCarroBean.carros}" var="carro">
+                <p:column headerText="Modelo" sortBy="#{carro.modelo}">
+                    <h:outputText value="#{carro.modelo}"></h:outputText>
+                </p:column>
+                <p:column headerText="Fabricante" sortBy="#{carro.fabricante}">
+                    <h:outputText value="#{carro.fabricante}"></h:outputText>
+                </p:column>
+                <p:column headerText="Cor">
+                    <h:outputText value="#{carro.cor}"></h:outputText>
+                </p:column>
+                <p:column headerText="Ano">
+                    <h:outputText value="#{carro.ano}"></h:outputText>
+                </p:column>
+            </p:dataTable>
+        </p:fieldset>
+    </h:form>
+
+
+</ui:decorate>
+
